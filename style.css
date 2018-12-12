@@ -1,0 +1,66 @@
+*, html {
+  margin: 0;
+}
+
+body, input, button {
+  font: 11pt/1.3 "Helvetiva Neue", Helvetica, Arial, sans-serif;
+}
+
+button {
+  font-weight: bold;
+}
+
+#profile {
+  margin-left: 1%;
+  width: 60%;
+}
+
+dt {
+  font-weight: bold;
+  clear: left;
+  float: left;
+}
+
+dt:after {
+  content: ': ';
+}
+
+a {
+  color: #014ae6;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0196e6;
+}
+
+#header-bg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(shark.jpg);
+  width: 100%;
+  height: 220px;
+}
+
+#header {
+  background-color: rgba(2, 133, 204, 0.3);
+  height: 100%;
+}
+
+#header-container {
+  width: 60%;
+  margin: auto;
+  padding: 2%;
+}
+
+#shark {
+  width: 59%;
+  margin: auto;
+  padding: 2%;
+}
+
+p, h1, dl {
+  padding: 1%;
+}

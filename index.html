@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Shark on Solid</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+<body>
+  <div id="header-bg">
+    <div id="header">
+      <div id="header-container">
+        <h1>Explore Shark Tank</h1>
+        <p>Shark Tank is a TV show where aspiring entrepreneurs come and pitch their business ideas to judges, known as Deal Sharks.<br>
+      Start exploring this Shark Tank dataset by searching Deals Sharks' names.</p>
+          <p>
+            <div class="ui-widget">
+              <input id="profile" placeholder="Lori Greiner">
+              <button id="view">View</button>
+            </div>
+          </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="shark" hidden="true">
+    <h1 id="name"></h1>
+    <p id="error" hidden="true">Oops, no deal shark found. Perhaps check your spelling?</p>
+    <dl id="viewer">
+      <dt>Wikidata profile</dt>
+      <dd><a id="wiki" href=""></a></dd>
+      <dt>Gender</dt>
+      <dd id="gender"></dd>
+      <dt>Country of Citizenship</dt>
+      <dd id="country"></dd>
+    </dl>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="scripts/rdflib.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>
