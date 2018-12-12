@@ -26,13 +26,14 @@ dt:after {
 }
 
 a {
-  color: #014ae6;
+  color: #014694;
   cursor: pointer;
   text-decoration: none;
 }
 
-a:hover {
+a:hover, #viewer li:hover {
   color: #0196e6;
+  cursor: pointer;
 }
 
 #header-bg {
@@ -49,18 +50,31 @@ a:hover {
   height: 100%;
 }
 
-#header-container {
+#header-container, #shark, #deal {
   width: 60%;
-  margin: auto;
-  padding: 2%;
-}
-
-#shark {
-  width: 59%;
   margin: auto;
   padding: 2%;
 }
 
 p, h1, dl {
   padding: 1%;
+}
+
+#deals {
+  margin-left: 4%;
+}
+
+#sharks {
+  margin-left: 9%;
+}
+
+#viewer li {
+  padding: 1px;
+  width: 25%;
+  color: #014694;
+}
+
+#shark, #deal {
+  height: 400px;
+  overflow: scroll;
 }
