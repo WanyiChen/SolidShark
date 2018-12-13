@@ -25,13 +25,12 @@ dt:after {
   content: ': ';
 }
 
-a {
+a, #epi {
   color: #014694;
-  cursor: pointer;
   text-decoration: none;
 }
 
-a:hover, #viewer li:hover {
+a:hover, .viewer li:hover, #epi:hover {
   color: #0196e6;
   cursor: pointer;
 }
@@ -50,7 +49,7 @@ a:hover, #viewer li:hover {
   height: 100%;
 }
 
-#header-container, #shark, #deal {
+#header-container, #footer-container, #shark, #deal, #episode {
   width: 60%;
   margin: auto;
   padding: 2%;
@@ -68,13 +67,26 @@ p, h1, dl {
   margin-left: 9%;
 }
 
-#viewer li {
+#epiDeals {
+  margin-left: 15%;
+}
+
+.viewer li {
   padding: 1px;
   width: 25%;
   color: #014694;
 }
 
-#shark, #deal {
+#shark, #deal, #episode {
   height: 400px;
   overflow: scroll;
+}
+
+#footer {
+  background-color: #014694;
+}
+
+#header a, #footer a {
+  color: black;
+  text-decoration: underline;
 }

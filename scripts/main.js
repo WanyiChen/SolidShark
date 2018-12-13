@@ -31,9 +31,20 @@ $('#deal').on('click', 'li', (e) => {
   loadShark(target.text());
 });
 
+$('#deal').on('click', '#epi', (e) => {
+  let target = $(e.target);
+  loadEpisode(target.attr("uri"), target.text());
+});
+
+$('#episode').on('click', 'li', (e) => {
+  let target = $(e.target);
+  loadDeal(target.attr("id"), target.text());
+});
+
 async function loadShark(name) {
   $("#shark").show();
   $("#deal").hide();
+  $("#episode").hide();
   if (sharks.includes(name)) {
     $("#error").hide();
     $("#name").show();
@@ -46,7 +57,7 @@ async function loadShark(name) {
       var uri = (result['?uri']).value;
       $('#wiki').text(uri);
       $('#wiki').attr('href', uri);
-      const shark = $rdf.sym(uri + '');
+      const shark = $rdf.sym(uri);
       var gender = store.any(shark, FOAF('gender'));
       $('#gender').text(gender.value);
       var country = store.any(shark, EXMP('country'));
@@ -67,14 +78,43 @@ async function loadShark(name) {
 async function loadDeal(uri, name) {
   $("#shark").hide();
   $("#deal").show();
+  $("#episode").hide();
   $("#sharks").empty();
   $("#dealName").text(name);
-  const deal = $rdf.sym(uri + '');
+  const deal = $rdf.sym(uri);
   var pitch = store.any(deal, SCMA('description'));
   $('#pitch').text(pitch.value);
   const dealQuery = 'SELECT ?sharkName WHERE { <' + uri + '> <https://example.org/fragments/hasDealShark> ?shark . ?shark <http://xmlns.com/foaf/0.1/name> ?sharkName .}';
   const query = $rdf.SPARQLToQuery(dealQuery, true, store);
   store.query(query, function(result) {
+    $("#sharks").show();
+    $('#noDeal').hide();
     $('#sharks').append($('<li>').append(result['?sharkName'].value));
+  });
+  if ($('#sharks li').length < 1) {
+    $('#sharks').hide();
+    $('#noDeal').show();
+  }
+  const epiQuery = 'SELECT ?epi ?epiNum WHERE {?epi <https://example.org/fragments/showCases>  <' + uri + '> . ?epi <http://schema.org/episodeNumber> ?epiNum .}';
+  const query2 = $rdf.SPARQLToQuery(epiQuery, true, store);
+  store.query(query2, function(result) {
+    $('#epi').text(result['?epiNum'].value);
+    $('#epi').attr("uri", result['?epi']);
+  });
+}
+
+async function loadEpisode(uri, num) {
+  $("#shark").hide();
+  $("#deal").hide();
+  $("#episode").show();
+  $("#episodeNum").text("Episode " + num);
+  $("#epiDeals").empty();
+  const epi = $rdf.sym(uri);
+  const epiQuery = 'SELECT ?busi ?busiName WHERE {' + uri + ' <https://example.org/fragments/showCases> ?busi . ?busi <http://schema.org/name> ?busiName .}';
+  console.log(epiQuery);
+  const query = $rdf.SPARQLToQuery(epiQuery, true, store);
+  store.query(query, function(result) {
+    console.log(result['?busiName'].value);
+    $('#epiDeals').append($('<li>').append(result['?busiName'].value).attr('id', result['?busi'].value));
   });
 }

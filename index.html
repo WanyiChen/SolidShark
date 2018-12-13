@@ -13,7 +13,7 @@
     <div id="header">
       <div id="header-container">
         <h1>Explore Shark Tank</h1>
-        <p>Shark Tank is a TV show where aspiring entrepreneurs come and pitch their business ideas to judges, known as Deal Sharks.<br>
+        <p><a href="https://en.wikipedia.org/wiki/Shark_Tank" target="_blank">Shark Tank</a> is a TV show where aspiring entrepreneurs come and pitch their business ideas to judges, known as Deal Sharks.<br>
       Start exploring this Shark Tank dataset by searching Deals Sharks' names.</p>
           <p>
             <div class="ui-widget">
@@ -28,9 +28,9 @@
   <div id="shark" hidden="true">
     <h1 id="name"></h1>
     <p id="error" hidden="true">Oops, no deal shark found. Perhaps check your spelling?</p>
-    <dl id="viewer">
+    <dl class="viewer">
       <dt>Wikidata profile</dt>
-      <dd><a id="wiki" href=""></a></dd>
+      <dd><a id="wiki" href="" target="_blank"></a></dd>
       <dt>Gender</dt>
       <dd id="gender"></dd>
       <dt>Country of Citizenship</dt>
@@ -44,14 +44,34 @@
 
   <div id="deal" hidden="true">
     <h1 id="dealName"></h1>
-    <dl id="viewer">
+    <dl class="viewer">
+      <dt>Episode</dt>
+      <dd id="epi"></dd>
       <dt>Deal Sharks</dt>
       <dd>
         <ul id="sharks"></ul>
       </dd>
+      <dd id="noDeal" hidden="true">No deal was made</dd>
       <dt>Pitch discription</dt>
       <dd id="pitch"></dd>
     </dl>
+  </div>
+
+  <div id="episode" hidden="true">
+    <h1 id="episodeNum"></h1>
+    <dl class="viewer">
+      <dt>Businesses pitched</dt>
+      <dd>
+        <ul id="epiDeals"></ul>
+      </dd>
+    </dl>
+  </div>
+
+  <div id=footer>
+    <div id="footer-container">
+      <p>Developed by <a href="https://github.com/WanyiChen/SolidShark" target="_blank">Wanyi Chen</a> at Dec 2018.</p>
+      <p>Data originally found <a href="https://www.kaggle.com/neiljs/all-shark-tank-us-pitches-deals/home" target="_blank">here</a>.<p>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
